@@ -1,7 +1,7 @@
 ---
 layout: page
 title: penjelasan
-permalink: /penjelasan
+permalink: /penjelasan/
 ---
 
 # penjelasan
