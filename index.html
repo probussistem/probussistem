@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Makuro Workshop
+        </title>
+        <link rel="stylesheet" href="w3.css">
+        <script type="text/javascript" src="jquery.js"></script>
+    
+        <style>
+            .w3-container{
+                padding:0px;
+            }
+            .atas{
+                top:100px;
+                position: relative;
+            }
+            .bg1{
+                background: linear-gradient(90deg, #00C9FF 0%, #92FE9D 100%);
+            }
+            .full{
+                width:100%;
+            }
+            .nav{
+                top: 630px;
+                position: absolute;
+                width: 320px;
+            }
+            .menu{
+                position: absolute ;
+                top: 100px;
+                width: 250px;
+                height: 568px;
+            }
+            .flx{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            .flx > div{
+                width: 19.8%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="w3-text-blue-grey w3-content w3-center w3-xxlarge">Probus System</div>
+       <div id="main1" class="w3-container w3-padding">
+           <div class="w3-half">
+                <div class="w3-large w3-center">mobile app</div>
+                <div class="w3-container w3-padding" >
+                    <div class="w3-content w3-round w3-border w3-light-grey  bg1" style="height: 568px;width:320px;overflow:scroll" >
+                        <div class="w3-container" id="page1">
+                            <div id="login" class="w3-border w3-white w3-padding w3-round atas w3-animate-right">
+                                <div class="w3-text-blue w3-center w3-margin-bottom">Login</div>
+                                <input id="userName" class="w3-input w3-round w3-light-grey w3-margin-bottom " placeholder="user name" type="text" onclick="muncul('hv1')">
+                                <input id="password" class="w3-input w3-round w3-light-grey w3-margin-bottom " placeholder="password" type="password" onclick="muncul('hv2')">
+                                <div id="loginBtn" class="w3-padding w3-center w3-blue w3-round w3-margin-bottom w3-ripple " onclick="muncul('hv3')">Login</div>
+                                <div class="w3-small">
+                                    no account yet ..? <a href="#"><span class="w3-text-blue" onclick="muncul('hv4')">SIGNUP</span></a>
+                                </div>
+                            </div>
+                            <div id="signup" class="w3-border w3-white w3-padding w3-round atas w3-animate-left">
+                                <div class="w3-text-yellow w3-center w3-margin-bottom">SignUp</div>
+                                <input id="sUserName" class="w3-input w3-round w3-light-grey w3-margin-bottom " placeholder="user name" type="text" onclick="muncul('hv5')">
+                                <input id="sEmail" class="w3-input w3-round w3-light-grey w3-margin-bottom " placeholder="Email" type="email" onclick="muncul('hv6')">
+                                <input id="sPassword" class="w3-input w3-round w3-light-grey w3-margin-bottom " placeholder="password" type="password" onclick="muncul('hv7')">
+                                <div id="sSignupBtn" class="w3-padding w3-center w3-yellow w3-round w3-margin-bottom w3-ripple " onclick="muncul('hv8')">Signup</div>
+                                <div class="w3-container">
+                                    <div class="w3-container w3-center ">
+                                        use media sosial login<br>
+                                        <div class="w3-container w3-center">
+                                            <img src="google.png" style="width:40px;height:40px" onclick="muncul('hv9')">
+                                            <img src="fb.png" style="width:50px;height:50px" onclick="muncul('hv10')">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="page2" class="page1" class="w3-container">
+                           <div id="hal1" class="w3-container w3-light-grey w3-padding hal" >
+                                <div class="w3-card w3-margin-bottom w3-white">
+                                    <div class="w3-container w3-padding">
+                                        Superior
+                                    </div>
+                                    <img src="rom1.jpeg" class="full">
+                                    <div class="w3-text-red w3-large w3-padding">
+                                        <strong >discount 50% </strong>
+                                    </div>
+                                </div>
+                                <div class="w3-card w3-margin-bottom w3-white">
+                                    <div class="w3-container w3-padding">
+                                        Deluxe
+                                    </div>
+                                    <img src="rom2.jpeg" class="full">
+                                    <div class="w3-text-red w3-large w3-padding">
+                                        <strong >discount 10% </strong>
+                                    </div>
+                                </div>
+                                <div class="w3-card w3-margin-bottom w3-white">
+                                    <div class="w3-container w3-padding">
+                                        Superior
+                                    </div>
+                                    <img src="rom1.jpeg" class="full">
+                                    <div class="w3-text-red w3-large w3-padding">
+                                        <strong >discount 50% </strong>
+                                    </div>
+                                </div>
+                           </div>
+                           <div id="hal2" class="w3-container w3-light-grey hal" style="height: 568px;width:320px">
+                                <div class="w3-input w3-padding w3-white">
+                                    <img src="back.svg"> <span>Member Card</span>
+                                </div>
+                                <img src="card.jpg" class="full">
+                                <div class="w3-container">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                </div>
+                           </div>
+                           <div id="hal3" class="w3-container  w3-light-grey hal" style="height: 568px;width:320px">
+                                <div class="w3-input w3-padding w3-white">
+                                    <img src="back.svg"> <span>profile</span>
+                                </div>
+                                <div class="w3-container">
+                                    <img src="cantik.jpeg" class="full">
+                                </div>
+                                <div class="w3-container">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                </div>
+                            </div>
+                           
+                           <div id="menucon" class="menu w3-container w3-blue-grey w3-padding w3-animate-left">
+                                <div class="w3-center w3-padding w3-container">
+                                    <div class="w3-padding" >
+                                        <img class="full w3-center w3-circle" src="cantik.jpeg" style="width: 70px;height:70px;">
+                                    </div>
+                                </div>
+                                <div class="w3-container">
+                                    sarah jev movic
+                                </div>
+                                <hr>
+                                <div class="w3-bar-block">
+                                    <div class="w3-bar-item w3-button">menu 1</div>
+                                    <div class="w3-bar-item w3-button">menu 1</div>
+                                    <div class="w3-bar-item w3-button">menu 1</div>
+                                    <div class="w3-bar-item w3-button">menu 1</div>
+                                    <div class="w3-bar-item w3-button">menu 1</div>
+                                    <div class="w3-bar-item w3-button">menu 1</div>
+                                    <div class="w3-bar-item w3-button">menu 1</div>
+                                    <div class="w3-bar-item w3-button">menu 1</div>
+                                    <div class="w3-bar-item w3-button">menu 1</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="nav" class="w3-padding w3-blue nav">
+                            <div id="menu"  class="w3-quarter w3-center w3-ripple">
+                                <img  class="w3-ripple" src="menu.svg">
+                            </div>
+                            <div class="w3-quarter w3-center w3-ripple" onclick="halaman('hal1')">
+                                <img class="w3-ripple" src="bas.svg" >
+                            </div>
+                            <div class="w3-quarter w3-center w3-ripple" onclick="halaman('hal2')">
+                                <img class="w3-ripple" src="lib.svg" >
+                            </div>
+                            <div class="w3-quarter w3-center w3-ripple" onclick="halaman('hal3')">
+                                <img class="w3-ripple" src="account.svg" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+           <div class="w3-half">
+                <div class="w3-large w3-center">keterangan</div>
+                <div class="w3-container w3-padding">
+                    <div id="hv1" class="w3-xlarge w3-animate-left con">
+                        Input User Name<br>
+                        menggunakan username yang sudah terdaftar
+                    </div>
+                    <div id="hv2" class="w3-xlarge w3-animate-left con">
+                        Input Password<br>
+                        menggunakan password yang sudah terdaftar
+                    </div>
+                    <div id="hv3" class="w3-xlarge w3-animate-left con">
+                        Signin Button<br>
+                        klik untuk sigin
+                    </div>
+                    <div id="hv4" class="w3-xlarge w3-animate-left con">
+                        To Signup
+                        <div class="w3-container">
+                            <div id="showSignup" class="w3-button w3-round w3-blue">show signup</div>
+                        </div>
+                    </div>
+                    <div id="hv5" class="w3-xlarge w3-animate-left con">signup username
+                            <br>
+                            mendaftar dengan menggunakan username
+                    </div>
+                    <div id="hv6" class="w3-xlarge w3-animate-left con">email<br>
+                        memasukkan email untuk mendaftar ,<br>
+                        bisa menggunakan , gmail , outlook , yahoomail , dan lainnya
+                    </div>
+                    <div id="hv7" class="w3-xlarge w3-animate-left con">password<br>
+                        menggunakan password untuk mendaftar</div>
+                    <div id="hv8" class="w3-xlarge w3-animate-left con">tombol signup<br>
+                        jika data telah dilengkapi bisa langsung mendaftar</div>
+                    <div id="hv9" class="w3-xlarge w3-animate-left con">login google<br>
+                        langkah cepat login menggunakan gmail
+                    </div>
+                    <div id="hv10" class="w3-xlarge w3-animate-left con">Signin Button<br>
+                    langkah cepat login menggunakan facebook<br>
+                    <div id="next" class="w3-button w3-yellow w3-ripple w3-round">Next</div>
+                    <div class="w3-small">
+                        catatan : ini adalah secara garis besar layout , untuk warna , tampilan , tema , bisa 
+                        menyesuaikan sesuai keadaan,
+                        ada ribuan template dan tema di google yang bisa dijadikan reverency ,
+                        untuk sistematis cara kerja , disesuaikan dengan kebutuhan , tinggal bagaimana pengimplementasiannya
+                    </div>
+                    <div class="w3-text-blue-grey w3-xlarge"><strong>Probus System</strong></div>
+                    <div class="">No Problem Onli solution</div>
+                    <div class="w3-small">
+                        anda ingin apa saja , kami yang carikan cara
+                    </div>
+                    <div class="w3-container">
+                        <div id="kes" class="w3-button w3-round w3-blue">Kesimpulan</div>
+                    </div>
+                    </div>
+                   
+                </div>
+           </div>
+       </div>
+       <div id="main2" class="w3-padding w3-content">
+           <div class="w3-container w3-text-blue-grey w3-xxlarge">
+               <strong>Probus System</strong>
+           </div>
+           <strong>No Problem Only solution</strong>
+           <div class="w3-container w3-margin-bottom">
+               anda ingin apa saja , kami yang adakan cara
+           </div>
+           <div class="w3-padding w3-container w3-round w3-blue w3-center">
+                <strong class="w3-xlarge w3-center w3-padding" >Dengan Pengalaman 8+ tahun</strong>
+                <div id="isinya" class="flx">
+                </div>
+                <div class=""><strong>Kami siap mewujudkan setiap Kebutuhan anda</strong></div>
+           </div>
+       </div>
+       <script>
+           $("#main2").hide()
+           $("#kes").click(()=>{
+               console.log("ya")
+               $("#main1").hide()
+               $("#main2").show()
+           })
+            var bahasa = [
+                "html",
+                "javascript",
+                "css",
+                "php",
+                "java",
+                "dart",
+                "laravel",
+                "lumen",
+                "node js",
+                "xml",
+                "json",
+                "jeckyll",
+                "android studio",
+                "krita",
+                "inkscape",
+                "open shot",
+                "cordova",
+                "v8",
+                "liquid",
+                "linux",
+                "linux server",
+                "foxpro",
+                "vs code",
+                "atom",
+                "bracket",
+                "photo shop",
+                "correl draw",
+                "python",
+                "mobile ui",
+                "dan lainnya"
+            ]
+
+            var isinya = "";
+            for(var i =0;i<bahasa.length;i++){
+                isinya += `<div class="w3-border w3-container w3-hover-blue w3-xlarge w3-margin-bottom w3-round w3-white"><strong>${bahasa[i]}</strong></div>`
+            }
+            $("#isinya").html(isinya)
+
+            $("#signup").hide();
+            $("#page2").hide();
+            $("#nav").hide()
+            var a = document.getElementsByClassName("con");
+            for(var i =0;i<a.length;i++){
+                  a[i].style.display = "none"
+              }
+            function muncul(e){
+                for(var i =0;i<a.length;i++){
+                    a[i].style.display = "none"
+                }
+                if(document.getElementById(e) != null){
+                    document.getElementById(e).style.display = "block"
+                }
+            }
+            $("#showSignup").click(()=>{
+                $("#login").hide()
+                $("#signup").show()
+            })
+            var mn = true;
+            $("#menucon").hide()
+            $("#menu").click(()=>{
+                
+                if(mn){
+                    $("#menucon").show()
+                    mn = false;
+                }else{
+                    $("#menucon").hide();
+                    mn = true;
+                }
+            })
+
+            var hal = document.getElementsByClassName("hal");
+            for(var u =0;u<hal.length;u++){
+                hal[u].style.display = "none"
+            }
+            hal[0].style.display = "block"
+
+            function halaman(e){
+                $("#menucon").hide()
+                for(var u =0;u<hal.length;u++){
+                    hal[u].style.display = "none"
+                }
+                document.getElementById(e).style.display = "block"
+            }
+            $("#next").click(()=>{
+                $("#page1").hide()
+                $("#page2").show();
+                $("#nav").show()
+            })
+       </script>
+    </body>
+</html>
