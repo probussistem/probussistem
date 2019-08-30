@@ -119,8 +119,6 @@
 
             // membaca
             firebase.database().ref("post").on('value',(snapshot)=>{
-
-                
                 var semua = [];
                 for(var a in snapshot.val()){
                     for(var b in snapshot.val()[a]){
@@ -141,7 +139,16 @@
             $("#editor").hide()
 
             $("#baru").click(()=>{
-                $("#editor").show();
+                var apa = window.location.href;
+                if(apa.includes("#")){
+                    var bagi = apa.split("#");
+                    if(apa[1].includes("baru")){
+                        $("#editor").show();
+                    }
+                }else{
+                    alert("anda tidak memiliki akses untuk membuat kontent baru")
+                }
+                
             })
             $("#close2").click(()=>{
                 $("#editor").hide();
@@ -198,11 +205,20 @@
             })
 
            function hapus(e){
-                db.ref("post/"+e).remove().then(()=>{
-                    alert("terhapus")
-                }).catch((e)=>{
-                    alert(e.massage)
-                })
+               var apa = window.location.href;
+               if(apa.includes("#")){
+                   var bagi = apa.split("#");
+                   if(bagi[1].includes("hapus")){
+                        db.ref("post/"+e).remove().then(()=>{
+                            alert("terhapus")
+                        }).catch((e)=>{
+                            alert(e.massage)
+                        })
+                   }
+               }else{
+                   alert("anda tidak mempunyai ijin untuk menghapusnya")
+               }
+               
            }
 
         </script>
