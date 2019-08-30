@@ -142,8 +142,10 @@
                 var apa = window.location.href;
                 if(apa.includes("#")){
                     var bagi = apa.split("#");
-                    if(apa[1].includes("baru")){
+                    if(bagi[1].includes("baru")){
                         $("#editor").show();
+                    }else{
+                        alert("anda tidak memiliki akses untuk membuat kontent baru")
                     }
                 }else{
                     alert("anda tidak memiliki akses untuk membuat kontent baru")
@@ -214,6 +216,8 @@
                         }).catch((e)=>{
                             alert(e.massage)
                         })
+                   }else{
+                    alert("anda tidak mempunyai ijin untuk menghapusnya")
                    }
                }else{
                    alert("anda tidak mempunyai ijin untuk menghapusnya")
