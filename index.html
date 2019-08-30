@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
+        <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+
+        <!-- jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- markdown -->
+        <script src="dist/js/md.js"></script>
+        <link rel="stylesheet" href="dist/css/main.css">
+
+       <style>
+            h*{
+                font-family: 'Roboto', sans-serif;
+            }
+            .w3-container{
+                padding:0px;
+            }
+
+            html {
+                overflow: scroll;
+                overflow-x: hidden;
+            }
+            ::-webkit-scrollbar {
+                width: 0px;  /* Remove scrollbar space */
+                background: transparent;  /* Optional: just make scrollbar invisible */
+            }
+            /* Optional: show position indicator in red */
+            ::-webkit-scrollbar-thumb {
+                background: #FF0000;
+            }
+            .mc{
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                width: 100%;
+                height: 90%;
+                overflow: scroll;
+                z-index: 100;
+            }
+            #editor{
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                width: 100%;
+                height: 90%;
+                overflow: scroll;
+                z-index: 90;
+            }
+            
+        </style>
+    </head>
+    <body class="w3-light-grey">
+        <div class="w3-large w3-blue w3-input" >Malik kurosaki
+            <div id="baru" class="w3-right w3-button">new</div>
+        </div>
+        <div class="w3-content w3-white w3-input w3-padding">
+            <div id="main" class="w3-container" style="overflow: scroll"></div>
+            <div id="mc" class="mc w3-container w3-content w3-round w3-border w3-white w3-card">
+                <div id="close1" class=" w3-red w3-round w3-right w3-button ">X</div>
+                <div class="muncul w3-white w3-container w3-padding" style="width:100%;height: 100%;z-index:-1;overflow: scroll" id="muncul"></div>
+                <div class="w3-container w3-padding">
+                    <input id="ket" class="w3-input w3-light-grey" placeholder="keterangan">
+                </div>
+                <div class="w3-container w3-padding">
+                    <input id="jdl" placeholder="judul" class="w3-quarter w3-input w3-light-grey"><input id="kat" placeholder="kategori" class="w3-quarter w3-input w3-light-grey" ><input id="tag" placeholder="tag" class="w3-quarter w3-input w3-light-grey">
+                    <div id="save1" class="w3-input w3-button w3-blue w3-quarter">save</div>
+                </div>
+            </div>
+            <div id="editor" class="w3-container w3-content w3-white w3-round w3-border">
+                <div id="close2" class=" w3-red w3-round w3-right w3-button ">X</div>
+                <div contenteditable="true" id="edit" style="width:100%;height: 100%;z-index:-1;overflow: scroll"  spellcheck="false" class="w3-padding w3-input" ></div>
+                <button id="markdown" class="w3-button w3-blue w3-round w3-right w3-margin-top ">markdown</button>
+                <button id="html" class="w3-button w3-blue w3-round w3-right w3-margin-top w3-margin-right">html</button>
+            </div>
+        </div>
+        <script>
+            var firebaseConfig = {
+                apiKey: "AIzaSyCckvX1DUrHlG6Zh6zVExgLOE_Mr4RANhw",
+                authDomain: "probussystem-32ab2.firebaseapp.com",
+                databaseURL: "https://probussystem-32ab2.firebaseio.com",
+                projectId: "probussystem-32ab2",
+                storageBucket: "probussystem-32ab2.appspot.com",
+                messagingSenderId: "491305505631",
+                appId: "1:491305505631:web:a9cbd55378c7e7ba"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+
+            var db = firebase.database();
+
+            // kunci
+            
+
+            // simpan data
+
+            // db.ref('/users/').set({
+            //     nama:"malik",
+            //     umur:13
+            // },(e)=>{
+            //     if(e){
+            //         console.log("gagal")
+            //     }else{
+            //         console.log("berhasil")
+            //     }
+            // })
+
+            // membaca
+            firebase.database().ref("post").on('value',(snapshot)=>{
+
+                
+                var semua = [];
+                for(var a in snapshot.val()){
+                    for(var b in snapshot.val()[a]){
+                        semua.push(snapshot.val()[a][b]);
+                    }
+                }
+
+                var sm = semua.reverse()
+                var kontent = ""
+                for(var y in sm){
+                    var isinya = sm[y];
+                        kontent += `<details id=""><summary class="w3-button">${isinya.judul} > ${isinya.tanggal}</summary><p>${isinya.isi}</p></details>`;
+                }
+                $("#main").html(kontent)
+            });
+
+            $("#mc").hide();
+            $("#editor").hide()
+
+            $("#baru").click(()=>{
+                $("#editor").show();
+            })
+            $("#close2").click(()=>{
+                $("#editor").hide();
+            })
+
+            document.getElementById("markdown").onclick = function(){
+                var tex = document.getElementById("edit").innerText.replace(/"/g,"");
+                var target = document.getElementById("muncul").innerHTML = marked(tex);
+                $("#mc").show();
+            }
+            document.getElementById("html").onclick = function(){
+                var tex = document.getElementById("edit").innerHTML.replace(/<br>/g,"\n");
+                var target = document.getElementById("muncul").innerHTML = marked(tex);
+                $("#mc").show();
+            }
+
+            $("#close1").click(()=>{
+                $("#mc").hide();
+            })
+
+            $("#save1").click(()=>{
+
+                let tod = new Date().toISOString().slice(0, 10)
+
+                var hsl = $("#muncul").html();
+                var ket = $("#ket").val();
+                var jdl = $("#jdl").val();
+                var kat = $("#kat").val();
+                var tg = $("#tag").val();
+
+
+                if(hsl == "" || ket == "" || jdl == "" || kat == "" || tag == ""){
+                    alert("gak bole ad yang kosong")
+                }else{
+                    var key = firebase.database().ref().child('posts').push().key;
+                    db.ref('/post/'+tod+"/"+key).set({
+                        isi:hsl,
+                        keterangan:ket,
+                        kategori:kat,
+                        judul:jdl,
+                        tag:tg,
+                        tanggal:tod,
+                        kunci:key
+                    },(e)=>{
+                        if(e){
+                            alert("gagal")
+                            $("#mc").hide();
+                        }else{
+                            alert("berhasil")
+                            $("#mc").hide();
+                        }
+                    })
+                }
+            })
+
+        </script>
+
+    </body>
+</html>
