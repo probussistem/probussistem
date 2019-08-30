@@ -126,9 +126,9 @@
 
                 var sm = semua.reverse()
                 var kontent = ""
-                for(var y in sm){
+                for(var y in sm){this
                     var isinya = sm[y];
-                        kontent += `<details id=""><summary class="w3-button">${isinya.judul} > ${isinya.tanggal}</summary><p>${isinya.isi}</p></details>`;
+                        kontent += `<details id=""><summary class="w3-button">${isinya.judul} > ${isinya.tanggal}</summary><p class="w3-container w3-padding">${isinya.isi}</p> <div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci" onclick="hapus('${isinya.tanggal}/${isinya.kunci}')" id="${isinya.kunci}">X</div></details>`;
                 }
                 $("#main").html(kontent)
             });
@@ -192,6 +192,14 @@
                     })
                 }
             })
+
+           function hapus(e){
+                db.ref("post/"+e).remove().then(()=>{
+                    alert("terhapus")
+                }).catch((e)=>{
+                    alert(e.massage)
+                })
+           }
 
         </script>
 
