@@ -9,7 +9,6 @@ h*{
 html {
     overflow: scroll;
     overflow-x: hidden;
-    font-size: 0.5em
 }
 ::-webkit-scrollbar {
     width: 0px;  /* Remove scrollbar space */
