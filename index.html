@@ -43,21 +43,24 @@
                 background: #FF0000;
             }
             .mc{
-                position: fixed;
-                width: 100%;
-                height: 90%;
+                position: fixed; 
+                top: 10%;
+                left: 10%;
+                bottom: 10%;
+                width: 80%;
+                height: 80%;
                 overflow: scroll;
                 z-index: 100;
             }
             #editor{
                 position: fixed;
-                top: 10px;
-                left: 10px;
-                right: 10px;
-                width: 100%;
-                height: 90%;
+                top: 10%;
+                left: 10%;
+                width: 80%;
+                bottom: 10%;
+                height: 80%;
                 overflow: scroll;
-                z-index: 90;
+                z-index: 0;
             }
             
         </style>
@@ -82,9 +85,17 @@
             <div id="editor" class="w3-container w3-content w3-white w3-round w3-border">
                 <div id="close2" class=" w3-red w3-round w3-right w3-button ">X</div>
                 <div contenteditable="true" id="edit" style="width:100%;height: 100%;z-index:-1;overflow: scroll"  spellcheck="false" class="w3-padding w3-input" ></div>
-                <button id="markdown" class="w3-button w3-blue w3-round w3-right w3-margin-top ">markdown</button>
-                <button id="html" class="w3-button w3-blue w3-round w3-right w3-margin-top w3-margin-right">html</button>
+                <div class="w3-container">
+                    <div class="w3-container w3-third w3-hover-yellow">
+                        <label id="gambar1" for="gambar2" class="w3-container w3-padding w3-blue w3-input">gambar</label>
+                        <input id="gambar2" class="w3-hide">
+                    </div>
+                    <div id="markdown" class="w3-right w3-button w3-blue ">markdown</div>
+                    <div id="html" class="w3-right w3-button w3-blue ">html</div>
+                </div>
+
             </div>
+
         </div>
         <script>
             var firebaseConfig = {
@@ -100,22 +111,6 @@
             firebase.initializeApp(firebaseConfig);
 
             var db = firebase.database();
-
-            // kunci
-            
-
-            // simpan data
-
-            // db.ref('/users/').set({
-            //     nama:"malik",
-            //     umur:13
-            // },(e)=>{
-            //     if(e){
-            //         console.log("gagal")
-            //     }else{
-            //         console.log("berhasil")
-            //     }
-            // })
 
             // membaca
             firebase.database().ref("post").on('value',(snapshot)=>{
@@ -222,10 +217,51 @@
                }else{
                    alert("anda tidak mempunyai ijin untuk menghapusnya")
                }
-               
            }
+
+
+           File.prototype.gamabar = (panggil)=>{
+               var reader = new FileReader();
+               reader.onload = (e)=>{
+                   panggil(e.target.result,e.target.error)
+               }
+               reader.readAsDataURL(this);
+           }
+
+// =============================================================
+
+$("#gambar1").on('dragover',(e)=>{
+    e.preventDefault()
+    e.stopPropagation()
+    e.target.innerHTML = "disini"
+}).on('dragleave',(e)=>{
+    e.target.innerHTML = "gak jadi??"
+    e.preventDefault()
+    e.stopPropagation()
+})
+dropbox = document.getElementById("gambar1");
+
+dropbox.addEventListener("drop",(e)=>{
+
+const dt = e.dataTransfer;
+const files = dt.files[0];
+e.target.innerHTML = "";
+
+e.stopPropagation();
+e.preventDefault();
+var reader = new FileReader();
+reader.onload = (e)=>{
+    var img = document.createElement('img');
+    img.setAttribute('src',e.target.result)
+    document.getElementById("gambar1").appendChild(img)
+}
+reader.readAsDataURL(files);
+}, false);
+
+
 
         </script>
 
-    </body>
+
+        </body>
 </html>
