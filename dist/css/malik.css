@@ -1,0 +1,95 @@
+/* utama */
+h*{
+    font-family: 'Roboto', sans-serif;
+}
+.w3-container{
+    padding:0px;
+}
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+    font-size: 0.5em
+}
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+.mc{
+    position: fixed; 
+    top: 10%;
+    left: 10%;
+    bottom: 10%;
+    width: 80%;
+    height: 80%;
+    overflow: scroll;
+    z-index: 100;
+}
+#editor{
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    bottom: 10%;
+    height: 80%;
+    overflow: scroll;
+    z-index: 0;
+}
+.padding-kanan{
+    padding-left: 16px;
+}
+.w3-button{
+    padding: 4px;
+}
+.w3-padding{
+    padding: 4px;
+}
+.padding4{
+    padding: 4px;
+}
+
+/* tambahan */
+
+/* loading */
+.lds-hourglass {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+    position: fixed;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+  }
+  .lds-hourglass:after {
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    width: 0;
+    height: 0;
+    margin: 6px;
+    box-sizing: border-box;
+    border: 26px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-hourglass 1.2s infinite;
+  }
+  @keyframes lds-hourglass {
+    0% {
+      transform: rotate(0);
+      animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+    50% {
+      transform: rotate(900deg);
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    100% {
+      transform: rotate(1800deg);
+    }
+  }
+  
+

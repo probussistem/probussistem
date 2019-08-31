@@ -21,92 +21,88 @@
         <!-- markdown -->
         <script src="dist/js/md.js"></script>
         <link rel="stylesheet" href="dist/css/main.css">
+        <link rel="stylesheet" href="dist/css/malik.css">
 
        <style>
-            h*{
-                font-family: 'Roboto', sans-serif;
-            }
-            .w3-container{
-                padding:0px;
-            }
-
-            html {
-                overflow: scroll;
-                overflow-x: hidden;
-            }
-            ::-webkit-scrollbar {
-                width: 0px;  /* Remove scrollbar space */
-                background: transparent;  /* Optional: just make scrollbar invisible */
-            }
-            /* Optional: show position indicator in red */
-            ::-webkit-scrollbar-thumb {
-                background: #FF0000;
-            }
-            .mc{
-                position: fixed; 
-                top: 10%;
-                left: 10%;
-                bottom: 10%;
-                width: 80%;
-                height: 80%;
-                overflow: scroll;
-                z-index: 100;
-            }
-            #editor{
-                position: fixed;
-                top: 10%;
-                left: 10%;
-                width: 80%;
-                bottom: 10%;
-                height: 80%;
-                overflow: scroll;
-                z-index: 0;
-            }
-            .padding-kanan{
-                padding-left: 16px;
-            }
+            
             
         </style>
     </head>
     <body class="w3-light-grey">
-        <div class="w3-large w3-blue w3-input" >Malik kurosaki
-            <div id="baru" class="w3-right w3-button">new</div>
-        </div>
-        <div class="w3-container w3-padding">
-            <div class="w3-half ">
-                <div class="w3-container w3-center">Change Log</div>
-                <div id="main" class="w3-container w3-white w3-input w3-border-right" style="overflow: scroll"></div>
-                <div id="mc" class="mc w3-container w3-content w3-round w3-border w3-white w3-card">
-                    <div id="close1" class=" w3-red w3-round w3-right w3-button ">X</div>
-                    <div class="muncul w3-white w3-container w3-padding" style="width:100%;height: 100%;z-index:-1;overflow: scroll" id="muncul"></div>
-                    <div class="w3-container w3-padding">
-                        <input id="ket" class="w3-input w3-light-grey" placeholder="keterangan">
-                    </div>
-                    <div class="w3-container w3-padding">
-                        <input id="jdl" placeholder="judul" class="w3-quarter w3-input w3-light-grey"><input id="kat" placeholder="kategori" class="w3-quarter w3-input w3-light-grey" ><input id="tag" placeholder="tag" class="w3-quarter w3-input w3-light-grey">
-                        <div id="save1" class="w3-input w3-button w3-blue w3-quarter">save</div>
+        <div class="w3-container">
+            <div class="w3-blue w3-input w3-container" >
+                <div id="brand" class="w3-col s11 w3-container">
+                    <div class="w3-button ">
+                        Malik kurosaki
                     </div>
                 </div>
-                <div id="editor" class="w3-container w3-content w3-white w3-round w3-border">
-                    <div id="close2" class=" w3-red w3-round w3-right w3-button ">X</div>
-                    <div contenteditable="true" id="edit" style="width:100%;height: 100%;z-index:-1;overflow: scroll"  spellcheck="false" class="w3-padding w3-input" ></div>
-                    <div class="w3-container">
-                        <div class="w3-container w3-third w3-hover-yellow">
-                            <label id="gambar1" for="gambar2" class="w3-container w3-padding w3-blue w3-input">gambar</label>
-                            <input id="gambar2" class="w3-hide">
-                        </div>
-                        <div id="markdown" class="w3-right w3-button w3-blue ">markdown</div>
-                        <div id="html" class="w3-right w3-button w3-blue ">html</div>
+                <div class="w3-col s1 w3-container">
+                    <div id="baru" class="w3-right w3-button">new</div>
+                </div>
+            </div>
+            <div class="w3-container padding4">
+                <div class="w3-half w3-container ">
+                    <div class="w3-container w3-center">Change Log</div>
+                    <!-- main -->
+                    <div id="main" class="w3-container w3-white w3-input w3-border-right" style="overflow: scroll"></div>
+                </div>
+                    <!-- kategori -->
+                <div class="w3-half w3-container ">
+                    <div class="w3-container w3-center">Kategori</div>
+                    <div class="w3-container w3-input w3-white">
+                        <div id="cmenu"></div>
                     </div>
                 </div>
             </div>
-            <div class="w3-half w3-container ">
-                <div class="w3-container w3-center">Kategori</div>
-                <div class="w3-container w3-input w3-padding w3-white">
-                    <div id="cmenu"></div>
+        </div>
+        <div class="w3-container">
+            <!-- editor -->
+            <div id="editor" class="w3-container w3-content w3-white w3-round w3-border">
+                <div class="w3-container w3-blue">
+                    <div class="w3-container w3-center w3-col s11 w3-xlarge">Editor</div>
+                    <div class="w3-col s1 w3-container">
+                        <div id="close2" class=" w3-red w3-right w3-button w3-padding">X</div>
+                    </div>
+                </div>
+                
+                <div contenteditable="true" id="edit" style="width:100%;height: 100%;z-index:-1;overflow: scroll"  spellcheck="false" class="w3-padding w3-input" ></div>
+                <div class="w3-container">
+                    <div class="w3-container w3-third w3-hover-yellow">
+                        <label id="gambar1" for="gambar2" class="w3-container w3-padding w3-blue w3-input">gambar</label>
+                        <input id="gambar2" class="w3-hide">
+                    </div>
+                    <div id="markdown" class="w3-right w3-button w3-blue ">markdown</div>
+                    <div id="html" class="w3-right w3-button w3-blue w3-border-white w3-border-right">html</div>
+                </div>
+            </div>
+            <!-- save -->
+            <div id="mc" class="mc w3-container w3-content w3-round w3-border w3-white w3-card">
+                <div class="w3-container w3-blue">
+                    <div class=" w3-center w3-col s11 w3-xlarge">Save</div>
+                    <div id="close1" class="w3-col s1">
+                        <div class="w3-right w3-button w3-red w3-padding">X</div>
+                    </div>
+                </div>
+                <div class="muncul w3-white w3-container w3-padding" style="width:100%;height: 100%;z-index:-1;overflow: scroll" id="muncul"></div>
+                <div class="w3-container">
+                    <input id="ket" class="w3-input w3-light-grey" placeholder="keterangan">
+                </div>
+                <div class="w3-container ">
+                    <div id="" class="w3-quarter w3-light-grey">
+                        <input id="jdl" placeholder="judul" class="w3-input">
+                    </div>
+                    <div id="katnya" class="w3-quarter w3-light-grey">
+                        <input id="kat" placeholder="kategori" list="kategori" class=" w3-input" >
+                    </div>
+                    <div id="thetag" class="w3-quarter w3-light-grey">
+                        <input id="tag" placeholder="tag" class="w3-input" list="taglist">
+                    </div>
+                    <div id="save1" class="w3-input w3-button w3-blue w3-quarter">save</div>
                 </div>
             </div>
         </div>
+        <!-- loading -->
+        <div id="loading" class="lds-hourglass w3-blue w3-circle"></div>
         <script>
             var firebaseConfig = {
                 apiKey: "AIzaSyCckvX1DUrHlG6Zh6zVExgLOE_Mr4RANhw",
@@ -121,7 +117,9 @@
             firebase.initializeApp(firebaseConfig);
 
             var db = firebase.database();
-
+            $('#brand').click(()=>{
+                window.location.reload();
+            })
             // membaca
             firebase.database().ref("post").on('value',(snapshot)=>{
                 var semua = [];
@@ -145,47 +143,66 @@
                 }
 
                 kategori = [...new Set(kategori)]
+                tagnya = [...new Set(tagnya)]
                 kuncinya = [...new Set(kuncinya)]
                 tangganya = [...new Set(tangganya)]
                 var ket = ""
+                var sugest = `<datalist id="kategori">`
+                var sugestTag = `<datalist id="taglist">`
                 for(var i in kategori){
+                    sugest += `<option value="${kategori[i]}">`
+                    sugestTag += `<option value="${tagnya[i]}">`
                     ket += `<details><summary class="w3-button">${kategori[i]}</summary>`
                     for(var y in kabeh){
                         if(kabeh[y].kategori.includes(kategori[i])){
-                            ket += `<div><details class="w3-container "><summary class="w3-button w3-blue w3-border-bottom w3-border-white">${kabeh[y].judul}</summary><div class="w3-container w3-padding w3-border">${kabeh[y].isi}</div><div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci" onclick="hapus('${kabeh[i].tanggal}/${kabeh[i].kunci}')" >X</div></details></div>`
+                            ket += `<div><details class="w3-container "><summary class="w3-button w3-blue w3-border-bottom w3-border-white">${kabeh[y].judul}</summary><div class="w3-container w3-border"><div class="w3-container w3-padding">${kabeh[y].isi}</div><div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci busek" onclick="hapus('${kabeh[i].tanggal}/${kabeh[i].kunci}')" >X</div></div></details></div>`
                         }
                     }
                     ket += `</details>`
                 }
-
+                sugest += `</datalist>`
+                sugestTag +=`</datalist>`
+                $('#katnya').append(sugest)
+                $('#thetag').append(sugestTag)
                 $("#cmenu").html(ket)
 
                 var sm = semua.reverse()
                 var kontent = ""
                 for(var y in sm){this
                     var isinya = sm[y];
-                        kontent +=`<details ><summary class="w3-button">${isinya.judul} > ${isinya.tanggal}</summary><div class="w3-container w3-padding">${isinya.isi}</div> <div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci" onclick="hapus('${isinya.tanggal}/${isinya.kunci}')" id="${isinya.kunci}">X</div></details>`;
+                        kontent +=`<details ><summary class="w3-button">${isinya.judul} > ${isinya.tanggal}</summary><div class="w3-container w3-padding">${isinya.isi}</div> <div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci busek" onclick="hapus('${isinya.tanggal}/${isinya.kunci}')" id="${isinya.kunci}">X</div></details>`;
                 }
                 $("#main").html(kontent)
+                $('#loading').hide()
+
+                var busek = document.getElementsByClassName("busek");
+                var apa = window.location.href;
+                if(apa.includes("#busek")){
+                    for(var b = 0; b<busek.length;b++){
+                        busek[b].style.display = "block"
+                    }
+                }else{
+                    for(var b = 0; b<busek.length;b++){
+                        busek[b].style.display = "none"
+                    }
+                }
+                
             });
 
             $("#mc").hide();
             $("#editor").hide()
 
             $("#baru").click(()=>{
-                var apa = window.location.href;
-                if(apa.includes("#")){
-                    var bagi = apa.split("#");
-                    if(bagi[1].includes("baru")){
-                        $("#editor").show();
-                    }else{
-                        alert("anda tidak memiliki akses untuk membuat kontent baru")
-                    }
-                }else{
-                    alert("anda tidak memiliki akses untuk membuat kontent baru")
-                }
-                
+                alert("hayo , mau apa .. ?")
             })
+
+            var apa = window.location.href;
+            if(apa.includes("#baru")){
+                $("#editor").show();
+            }else{
+                $("#editor").hide();
+            }
+
             $("#close2").click(()=>{
                 $("#editor").hide();
             })
