@@ -62,6 +62,9 @@
                 overflow: scroll;
                 z-index: 0;
             }
+            .padding-kanan{
+                padding-left: 16px;
+            }
             
         </style>
     </head>
@@ -69,33 +72,40 @@
         <div class="w3-large w3-blue w3-input" >Malik kurosaki
             <div id="baru" class="w3-right w3-button">new</div>
         </div>
-        <div class="w3-content w3-white w3-input w3-padding">
-            <div id="main" class="w3-container" style="overflow: scroll"></div>
-            <div id="mc" class="mc w3-container w3-content w3-round w3-border w3-white w3-card">
-                <div id="close1" class=" w3-red w3-round w3-right w3-button ">X</div>
-                <div class="muncul w3-white w3-container w3-padding" style="width:100%;height: 100%;z-index:-1;overflow: scroll" id="muncul"></div>
-                <div class="w3-container w3-padding">
-                    <input id="ket" class="w3-input w3-light-grey" placeholder="keterangan">
-                </div>
-                <div class="w3-container w3-padding">
-                    <input id="jdl" placeholder="judul" class="w3-quarter w3-input w3-light-grey"><input id="kat" placeholder="kategori" class="w3-quarter w3-input w3-light-grey" ><input id="tag" placeholder="tag" class="w3-quarter w3-input w3-light-grey">
-                    <div id="save1" class="w3-input w3-button w3-blue w3-quarter">save</div>
-                </div>
-            </div>
-            <div id="editor" class="w3-container w3-content w3-white w3-round w3-border">
-                <div id="close2" class=" w3-red w3-round w3-right w3-button ">X</div>
-                <div contenteditable="true" id="edit" style="width:100%;height: 100%;z-index:-1;overflow: scroll"  spellcheck="false" class="w3-padding w3-input" ></div>
-                <div class="w3-container">
-                    <div class="w3-container w3-third w3-hover-yellow">
-                        <label id="gambar1" for="gambar2" class="w3-container w3-padding w3-blue w3-input">gambar</label>
-                        <input id="gambar2" class="w3-hide">
+        <div class="w3-container w3-padding">
+            <div class="w3-half ">
+                <div class="w3-container w3-center">Change Log</div>
+                <div id="main" class="w3-container w3-white w3-input w3-border-right" style="overflow: scroll"></div>
+                <div id="mc" class="mc w3-container w3-content w3-round w3-border w3-white w3-card">
+                    <div id="close1" class=" w3-red w3-round w3-right w3-button ">X</div>
+                    <div class="muncul w3-white w3-container w3-padding" style="width:100%;height: 100%;z-index:-1;overflow: scroll" id="muncul"></div>
+                    <div class="w3-container w3-padding">
+                        <input id="ket" class="w3-input w3-light-grey" placeholder="keterangan">
                     </div>
-                    <div id="markdown" class="w3-right w3-button w3-blue ">markdown</div>
-                    <div id="html" class="w3-right w3-button w3-blue ">html</div>
+                    <div class="w3-container w3-padding">
+                        <input id="jdl" placeholder="judul" class="w3-quarter w3-input w3-light-grey"><input id="kat" placeholder="kategori" class="w3-quarter w3-input w3-light-grey" ><input id="tag" placeholder="tag" class="w3-quarter w3-input w3-light-grey">
+                        <div id="save1" class="w3-input w3-button w3-blue w3-quarter">save</div>
+                    </div>
                 </div>
-
+                <div id="editor" class="w3-container w3-content w3-white w3-round w3-border">
+                    <div id="close2" class=" w3-red w3-round w3-right w3-button ">X</div>
+                    <div contenteditable="true" id="edit" style="width:100%;height: 100%;z-index:-1;overflow: scroll"  spellcheck="false" class="w3-padding w3-input" ></div>
+                    <div class="w3-container">
+                        <div class="w3-container w3-third w3-hover-yellow">
+                            <label id="gambar1" for="gambar2" class="w3-container w3-padding w3-blue w3-input">gambar</label>
+                            <input id="gambar2" class="w3-hide">
+                        </div>
+                        <div id="markdown" class="w3-right w3-button w3-blue ">markdown</div>
+                        <div id="html" class="w3-right w3-button w3-blue ">html</div>
+                    </div>
+                </div>
             </div>
-
+            <div class="w3-half w3-container ">
+                <div class="w3-container w3-center">Kategori</div>
+                <div class="w3-container w3-input w3-padding w3-white">
+                    <div id="cmenu"></div>
+                </div>
+            </div>
         </div>
         <script>
             var firebaseConfig = {
@@ -115,17 +125,46 @@
             // membaca
             firebase.database().ref("post").on('value',(snapshot)=>{
                 var semua = [];
+                var kategori = [];
+                var kabeh = []
+                var tagnya = []
+                var kuncinya = []
+                var tangganya = []
                 for(var a in snapshot.val()){
                     for(var b in snapshot.val()[a]){
-                        semua.push(snapshot.val()[a][b]);
+                        var datanya = snapshot.val()[a][b];
+                            kategori.push(datanya.kategori.trim())
+                            tagnya.push(datanya.tag.trim())
+                            kuncinya.push(datanya.kunci.trim())
+                            tangganya.push(datanya.tanggal.trim)
+                            kabeh.push(snapshot.val()[a][b])
+                        if(snapshot.val()[a][b].kategori.includes("changelog")){
+                            semua.push(snapshot.val()[a][b]);
+                        }
                     }
                 }
+
+                kategori = [...new Set(kategori)]
+                kuncinya = [...new Set(kuncinya)]
+                tangganya = [...new Set(tangganya)]
+                var ket = ""
+                for(var i in kategori){
+                    ket += `<details><summary class="w3-button">${kategori[i]}</summary>`
+                    for(var y in kabeh){
+                        if(kabeh[y].kategori.includes(kategori[i])){
+                            ket += `<div><details class="w3-container "><summary class="w3-button w3-blue w3-border-bottom w3-border-white">${kabeh[y].judul}</summary><div class="w3-container w3-padding w3-border">${kabeh[y].isi}</div><div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci" onclick="hapus('${kabeh[i].tanggal}/${kabeh[i].kunci}')" >X</div></details></div>`
+                        }
+                    }
+                    ket += `</details>`
+                }
+
+                $("#cmenu").html(ket)
 
                 var sm = semua.reverse()
                 var kontent = ""
                 for(var y in sm){this
                     var isinya = sm[y];
-                        kontent += `<details id=""><summary class="w3-button">${isinya.judul} > ${isinya.tanggal}</summary><p class="w3-container w3-padding">${isinya.isi}</p> <div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci" onclick="hapus('${isinya.tanggal}/${isinya.kunci}')" id="${isinya.kunci}">X</div></details>`;
+                        kontent +=`<details ><summary class="w3-button">${isinya.judul} > ${isinya.tanggal}</summary><div class="w3-container w3-padding">${isinya.isi}</div> <div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci" onclick="hapus('${isinya.tanggal}/${isinya.kunci}')" id="${isinya.kunci}">X</div></details>`;
                 }
                 $("#main").html(kontent)
             });
@@ -258,6 +297,24 @@ reader.onload = (e)=>{
 reader.readAsDataURL(files);
 }, false);
 
+$("#gambar1").bind('paste',(e)=>{
+    e.target.focus()
+    var items = (event.clipboardData || event.originalEvent.clipboardData).items;
+    console.log(JSON.stringify(items)); // will give you the mime types
+    for (index in items) {
+    var item = items[index];
+    if (item.kind === 'file') {
+        var blob = item.getAsFile();
+        var reader = new FileReader();
+        reader.onload = function(event){
+            var img = document.createElement('img');
+            img.setAttribute('src',event.target.result)
+            document.getElementById("gambar1").appendChild(img)
+        }; 
+        reader.readAsDataURL(blob);
+    }
+    }
+})
 
 
         </script>
