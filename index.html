@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-
         <meta property="og:title" content="Probus System Vesrsion controll" />
         <meta property="og:url" content="https://probussistem.github.io" />
         <meta property="og:image" content="https://i.postimg.cc/85c5rvjX/icon.png" />
@@ -76,7 +75,7 @@
             </div>
             <!-- save -->
             <div id="mc" class="mc w3-container w3-content w3-round w3-border w3-white w3-card">
-                <div class="w3-container w3-blue">
+                <div class="w3-container w3-red">
                     <div class=" w3-center w3-col s11 w3-xlarge">Save</div>
                     <div id="close1" class="w3-col s1">
                         <div class="w3-right w3-button w3-red w3-padding">X</div>
@@ -174,18 +173,19 @@
                 $("#main").html(kontent)
                 $('#loading').hide()
 
-                var busek = document.getElementsByClassName("busek");
-                var apa = window.location.href;
-                if(apa.includes("#busek")){
-                    for(var b = 0; b<busek.length;b++){
-                        busek[b].style.display = "block"
+                firebase.database().ref("setting").on('value',(snapshot)=>{
+                    var busek = document.getElementsByClassName("busek");
+                    var apa = window.location.href;
+                    if(apa.includes(snapshot.val().hapus)){
+                        for(var b = 0; b<busek.length;b++){
+                            busek[b].style.display = "block"
+                        }
+                    }else{
+                        for(var b = 0; b<busek.length;b++){
+                            busek[b].style.display = "none"
+                        }
                     }
-                }else{
-                    for(var b = 0; b<busek.length;b++){
-                        busek[b].style.display = "none"
-                    }
-                }
-                
+                })
             });
 
             $("#mc").hide();
@@ -195,17 +195,20 @@
                 alert("hayo , mau apa .. ?")
             })
 
-            var apa = window.location.href;
-            if(apa.includes("#baru")){
-                $("#editor").show();
-            }else{
-                $("#editor").hide();
-            }
+            firebase.database().ref("setting").on('value',(snapshot)=>{
 
-            $("#close2").click(()=>{
-                $("#editor").hide();
+                var apa = window.location.href;
+                if(apa.includes(snapshot.val().baru)){
+                    $("#editor").show();
+                }else{
+                    $("#editor").hide();
+                }
+
+                $("#close2").click(()=>{
+                    $("#editor").hide();
+                })
             })
-
+            
             document.getElementById("markdown").onclick = function(){
                 var tex = document.getElementById("edit").innerText.replace(/"/g,"");
                 var target = document.getElementById("muncul").innerHTML = marked(tex);
