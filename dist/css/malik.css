@@ -20,23 +20,33 @@ html {
 }
 .mc{
     position: fixed; 
-    top: 10%;
-    left: 10%;
-    bottom: 10%;
-    width: 80%;
-    height: 80%;
+    top: 5%;
+    left: 5%;
+    bottom: 5%;
+    width: 90%;
+    height: 90%;
     overflow: scroll;
     z-index: 100;
 }
 #editor{
     position: fixed;
-    top: 10%;
-    left: 10%;
-    width: 80%;
-    bottom: 10%;
-    height: 80%;
+    top: 5%;
+    left: 5%;
+    bottom: 5%;
+    width: 90%;
+    height: 90%;
     overflow: scroll;
     z-index: 0;
+}
+#hasilCari{
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    bottom: 5%;
+    width: 90%;
+    height: 90%;
+    overflow: scroll;
+    z-index: 10;
 }
 .padding-kanan{
     padding-left: 16px;

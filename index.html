@@ -23,30 +23,54 @@
         <link rel="stylesheet" href="dist/css/malik.css">
 
        <style>
-            
+           .nyecrol{
+               overflow: auto;
+           }
+           .flx{
+               display: flex;
+               justify-content: space-between;
+               align-items: baseline;
+           }
+           .flx > div{
+               width: 33%
+           }
         </style>
     </head>
     <body class="w3-light-grey">
         <div class="w3-container">
-            <div class="w3-blue w3-input w3-container" >
-                <div id="brand" class="w3-col s11 w3-container">
+            <div class="w3-blue w3-input w3-container flx" >
+                <!-- brand -->
+                <div id="brand" class="  w3-container w3-padding">
                     <div class="w3-button ">
                         Malik kurosaki
                     </div>
                 </div>
-                <div class="w3-col s1 w3-container">
-                    <div id="baru" class="w3-right w3-button">new</div>
+                <!-- cari -->
+                <div id="cari" class="w3-container w3-padding">
+                    <input id="mencari" class=" w3-container w3-light-grey w3-input padding4 w3-round" placeholder="cari" list="carilist">
+                </div>
+                <div  class=" w3-container w3-padding">
+                    <div id="baru" class="w3-right w3-button w3-right">new</div>
+                </div>
+            </div>
+            <!-- story -->
+            <div class="w3-container w3-content ">
+                <div class="w3-container">
+                    Story
+                </div>
+                <div id="story" class="w3-container w3-input w3-white w3-padding">
+
                 </div>
             </div>
             <div class="w3-container padding4">
                 <div class="w3-half w3-container ">
-                    <div class="w3-container w3-center">Change Log</div>
+                    <div class="w3-container ">Change Log</div>
                     <!-- main -->
                     <div id="main" class="w3-container w3-white w3-input w3-border-right" style="overflow: scroll"></div>
                 </div>
                     <!-- kategori -->
                 <div class="w3-half w3-container ">
-                    <div class="w3-container w3-center">Kategori</div>
+                    <div class="w3-container ">Kategori</div>
                     <div class="w3-container w3-input w3-white">
                         <div id="cmenu"></div>
                     </div>
@@ -99,9 +123,15 @@
                 </div>
             </div>
         </div>
+        <!-- hasil cari -->
+        <div id="hasilCari" class="w3-container w3-card w3-white w3-input w3-border">
+            <div id="closehasil" class="w3-button w3-padding w3-red w3-right">X</div>
+            <div id="isiCari" class="w3-padding" style="overflow:auto "></div>
+        </div>
         <!-- loading -->
         <div id="loading" class="lds-hourglass w3-blue w3-circle"></div>
         <script>
+            $('#hasilCari').hide()
             var firebaseConfig = {
                 apiKey: "AIzaSyCckvX1DUrHlG6Zh6zVExgLOE_Mr4RANhw",
                 authDomain: "probussystem-32ab2.firebaseapp.com",
@@ -126,20 +156,67 @@
                 var tagnya = []
                 var kuncinya = []
                 var tangganya = []
+                var judulnya = [];
+                var storynya = [];
                 for(var a in snapshot.val()){
                     for(var b in snapshot.val()[a]){
                         var datanya = snapshot.val()[a][b];
                             kategori.push(datanya.kategori.trim())
+                            judulnya.push(datanya.judul.trim())
                             tagnya.push(datanya.tag.trim())
                             kuncinya.push(datanya.kunci.trim())
                             tangganya.push(datanya.tanggal.trim)
                             kabeh.push(snapshot.val()[a][b])
+
                         if(snapshot.val()[a][b].kategori.includes("changelog")){
                             semua.push(snapshot.val()[a][b]);
+                        }
+                        if(datanya.kategori.includes("story")){
+                            storynya.push(datanya);
                         }
                     }
                 }
 
+                // menampilkan story
+                if(storynya.length != 0){
+                    $('#story').html(storynya.sort()[0].isi)
+                }
+                
+                // penampilan search / cari
+                
+                var detailCari = "";
+                    detailCari += `<datalist id="carilist">`
+                for(var j =0;j<judulnya.length;j++){
+                    //console.log(judulnya[j])
+                    detailCari +=`<option value="${judulnya[j]}">`
+                }
+                    detailCari +=`</datalist>`
+                $("#cari").append(detailCari)
+
+                $("#cari").change(()=>{
+                    const hasilnya = $("#mencari").val();
+                    if(hasilnya != " " || hasilnya != ""){
+                        console.log(hasilnya)
+                        var maka = "";
+                        for(var k=0;k<kabeh.length;k++){
+                            if(kabeh[k].judul.includes(hasilnya)){
+                                maka = kabeh[k].isi
+                            }
+                        }
+                        $('#hasilCari').show()
+                        $('#isiCari').html(maka)
+                    }else{
+                        alert("nakal ngejak guyon")
+                    }
+                    
+                })
+
+                $("#closehasil").click(()=>{
+                    $('#hasilCari').hide()
+                })
+
+
+                // menu kategory
                 kategori = [...new Set(kategori)]
                 tagnya = [...new Set(tagnya)]
                 kuncinya = [...new Set(kuncinya)]
@@ -153,7 +230,7 @@
                     ket += `<details><summary class="w3-button">${kategori[i]}</summary>`
                     for(var y in kabeh){
                         if(kabeh[y].kategori.includes(kategori[i])){
-                            ket += `<div><details class="w3-container "><summary class="w3-button w3-blue w3-border-bottom w3-border-white">${kabeh[y].judul}</summary><div class="w3-container w3-border"><div class="w3-container w3-padding">${kabeh[y].isi}</div><div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci busek" onclick="hapus('${kabeh[i].tanggal}/${kabeh[i].kunci}')" >X</div></div></details></div>`
+                            ket += `<div><details class="w3-container "><summary class="w3-button w3-blue w3-border-bottom w3-border-white">${kabeh[y].judul}</summary><div class="w3-container w3-border"><div class="w3-container w3-padding nyecrol" >${kabeh[y].isi}</div><div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci busek" onclick="hapus('${kabeh[i].tanggal}/${kabeh[i].kunci}')" >X</div></div></details></div>`
                         }
                     }
                     ket += `</details>`
@@ -319,7 +396,7 @@ reader.readAsDataURL(files);
 $("#gambar1").bind('paste',(e)=>{
     e.target.focus()
     var items = (event.clipboardData || event.originalEvent.clipboardData).items;
-    console.log(JSON.stringify(items)); // will give you the mime types
+    //console.log(JSON.stringify(items)); // will give you the mime types
     for (index in items) {
     var item = items[index];
     if (item.kind === 'file') {
