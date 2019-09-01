@@ -7,9 +7,8 @@ h*{
 }
 html *{
     overflow: scroll;
-    overflow-wrap: break-word;
 }
-html {
+html > div {
     overflow: scroll;
     overflow-x: hidden;
 }
@@ -138,4 +137,5 @@ html {
     background: #fff;
 }
 .bg{
-    background-image: linear-gradient(to bottom, #355f8b, #396493, #3c6a9a, #406fa2, #4475aa, #4779af, #4a7eb3, #4d82b8, #5186ba, #548abc, #588dbe, #5c91c0);
+    background: #a9aebb;
+}
