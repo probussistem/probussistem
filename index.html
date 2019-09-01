@@ -195,16 +195,22 @@
 
                 $("#cari").change(()=>{
                     const hasilnya = $("#mencari").val();
-                    if(hasilnya != " " || hasilnya != ""){
-                        console.log(hasilnya)
+                    if(hasilnya.trim() != " " || hasilnya.trim() != ""){
                         var maka = "";
+                        var berapa = []
                         for(var k=0;k<kabeh.length;k++){
                             if(kabeh[k].judul.includes(hasilnya)){
-                                maka = kabeh[k].isi
+                                maka += `<details><summary class="w3-button">${kabeh[k].judul}</summary><div class="w3-container w3-padding" style="overflow:auto">${kabeh[k].isi}</div></details>`
+                                berapa.push(kabeh[k].judul)
                             }
                         }
-                        $('#hasilCari').show()
-                        $('#isiCari').html(maka)
+                        if(berapa.length != 0){
+                            $('#hasilCari').show()
+                            $('#isiCari').html(maka)
+                        }else{
+                            alert("data tidak ada")
+                        }
+                       
                     }else{
                         alert("nakal ngejak guyon")
                     }
