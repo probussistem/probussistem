@@ -5,18 +5,22 @@ h*{
 .w3-container{
     padding:0px;
 }
-
+html *{
+    overflow: scroll;
+    overflow-wrap: break-word;
+}
 html {
     overflow: scroll;
     overflow-x: hidden;
 }
 ::-webkit-scrollbar {
-    width: 0px;  /* Remove scrollbar space */
+    width: 0px;
+    height: 0px;  /* Remove scrollbar space */
     background: transparent;  /* Optional: just make scrollbar invisible */
 }
 /* Optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
-    background: #FF0000;
+    background:transparent;
 }
 .mc{
     position: fixed; 
@@ -100,5 +104,38 @@ html {
       transform: rotate(1800deg);
     }
   }
-  
-
+.kebawah{
+    word-wrap    : break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+}
+.padding-kanan{
+    padding-left: 8px;
+}
+.nyecrol{
+    overflow: auto;
+}
+.flx{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.flx > div{
+    width: 49%
+}
+.flk2{
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-start;
+}
+.flk2 > div{
+    width: 49%;
+}
+.padding-a{
+    padding-left: 2px;
+    padding-bottom: 4px;
+    padding-right: 2px;
+    background: #fff;
+}
+.bg{
+    background-image: linear-gradient(to bottom, #355f8b, #396493, #3c6a9a, #406fa2, #4475aa, #4779af, #4a7eb3, #4d82b8, #5186ba, #548abc, #588dbe, #5c91c0);

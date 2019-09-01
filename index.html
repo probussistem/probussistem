@@ -14,7 +14,7 @@
         <!-- Add Firebase products that you want to use -->
         <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- jquery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <!-- markdown -->
@@ -23,67 +23,64 @@
         <link rel="stylesheet" href="dist/css/malik.css">
 
        <style>
-           .nyecrol{
-               overflow: auto;
-           }
-           .flx{
-               display: flex;
-               justify-content: space-between;
-               align-items: baseline;
-           }
-           .flx > div{
-               width: 33%
-           }
+           
         </style>
     </head>
-    <body class="w3-light-grey">
+    <body class="w3-container bg">
         <div class="w3-container">
-            <div class="w3-blue w3-input w3-container flx" >
-                <!-- brand -->
-                <div id="brand" class="  w3-container w3-padding">
-                    <div class="w3-button ">
-                        Malik kurosaki
+            <div class="w3-container padding-a w3-input w3-margin-bottom w3-card">
+                <div class="  w3-container flx w3-blue " >
+                    <!-- brand -->
+                    <div id="brand" class=" w3-container ">
+                        <div class="w3-button w3-xxlarge w3-hide-small">
+                            Malik kurosaki
+                        </div>
+                        <div class="w3-button w3-hide-large">
+                            Malik kurosaki
+                        </div>
                     </div>
-                </div>
-                <!-- cari -->
-                <div id="cari" class="w3-container w3-padding">
-                    <input id="mencari" class=" w3-container w3-light-grey w3-input padding4 w3-round" placeholder="cari" list="carilist">
-                </div>
-                <div  class=" w3-container w3-padding">
-                    <div id="baru" class="w3-right w3-button w3-right">new</div>
+                    <!-- cari -->
+                    <div id="cari" class="w3-container w3-blue">
+                        <input id="mencari" class=" w3-container w3-white w3-input padding-kanan  w3-round" placeholder="cari" list="carilist">
+                    </div>
+                    <!-- <div  class=" w3-container w3-padding">
+                        <div id="baru" class="w3-right w3-button w3-right">new</div>
+                    </div> -->
                 </div>
             </div>
             <!-- story -->
-            <div class="w3-container w3-content ">
+            <div class="w3-container w3-content w3-margin-bottom w3-card" >
                 <div class="w3-container">
-                    Story
+                    
                 </div>
-                <div id="story" class="w3-container w3-input w3-white w3-padding">
+                <div id="story" class="w3-container w3-input w3-white w3-padding w3-border w3-border-white" >
 
                 </div>
             </div>
-            <div class="w3-container padding4">
-                <div class="w3-half w3-container ">
-                    <div class="w3-container ">Change Log</div>
-                    <!-- main -->
-                    <div id="main" class="w3-container w3-white w3-input w3-border-right" style="overflow: scroll"></div>
-                </div>
-                    <!-- kategori -->
-                <div class="w3-half w3-container ">
-                    <div class="w3-container ">Kategori</div>
-                    <div class="w3-container w3-input w3-white">
-                        <div id="cmenu"></div>
+            <div class="w3-container padding4 ">
+                <!-- kategori -->
+                <div class=" w3-container w3-content w3-margin-bottom w3-card w3-mobile w3-border w3-border-white">
+                    <div class="w3-container  w3-padding">Kategori</div>
+                    <div class="w3-container w3-input w3-white w3-card">
+                        <div id="cmenu" class="w3-padding"></div>
                     </div>
                 </div>
+                <div class=" w3-container w3-content w3-margin-bottom w3-card w3-mobile w3-border w3-border-white">
+                    <div class="w3-container  w3-padding">Change Log Version Controll Probus System App</div>
+                    <!-- main -->
+                    <div id="main" class="w3-container w3-padding w3-white w3-input w3-border-right w3-card" style="overflow: scroll"></div>
+                </div>
+                
             </div>
         </div>
         <div class="w3-container">
             <!-- editor -->
-            <div id="editor" class="w3-container w3-content w3-white w3-round w3-border">
-                <div class="w3-container w3-blue">
-                    <div class="w3-container w3-center w3-col s11 w3-xlarge">Editor</div>
-                    <div class="w3-col s1 w3-container">
-                        <div id="close2" class=" w3-red w3-right w3-button w3-padding">X</div>
+            <div id="editor" class="w3-container w3-white w3-round w3-border w3-card">
+                <div class="w3-container flk2 w3-padding w3-blue">
+                    <div class="w3-container">Editor</div>
+                    <div class="w3-container">
+                        <div id="close2" class=" w3-red w3-right w3-button w3-padding w3-right">X</div>
+                        <div id="pulihkan" class=" w3-green w3-right w3-button w3-padding w3-right">pulihkan</div>
                     </div>
                 </div>
                 
@@ -98,7 +95,7 @@
                 </div>
             </div>
             <!-- save -->
-            <div id="mc" class="mc w3-container w3-content w3-round w3-border w3-white w3-card">
+            <div id="mc" class="mc w3-container  w3-round w3-border w3-white w3-card">
                 <div class="w3-container w3-red">
                     <div class=" w3-center w3-col s11 w3-xlarge">Save</div>
                     <div id="close1" class="w3-col s1">
@@ -120,6 +117,7 @@
                         <input id="tag" placeholder="tag" class="w3-input" list="taglist">
                     </div>
                     <div id="save1" class="w3-input w3-button w3-blue w3-quarter">save</div>
+                    <div id="update" class="w3-input w3-button w3-green w3-quarter">Update</div>
                 </div>
             </div>
         </div>
@@ -132,6 +130,7 @@
         <div id="loading" class="lds-hourglass w3-blue w3-circle"></div>
         <script>
             $('#hasilCari').hide()
+            $("#update").hide()
             var firebaseConfig = {
                 apiKey: "AIzaSyCckvX1DUrHlG6Zh6zVExgLOE_Mr4RANhw",
                 authDomain: "probussystem-32ab2.firebaseapp.com",
@@ -179,7 +178,8 @@
 
                 // menampilkan story
                 if(storynya.length != 0){
-                    $('#story').html(storynya.sort()[0].isi)
+                    var storyIsi = `<details class="w3-container"><summary  class="w3-padding w3-blue w3-center w3-round w3-button w3-cell"><h2>${storynya.sort()[0].judul}</h2><div class="w3-container w3-padding kebawah" >${storynya.sort()[0].keterangan}</div></summary><div class="over w3-container">${storynya.sort()[0].isi}</div></details>`
+                    $('#story').html(storyIsi)
                 }
                 
                 // penampilan search / cari
@@ -236,7 +236,7 @@
                     ket += `<details><summary class="w3-button">${kategori[i]}</summary>`
                     for(var y in kabeh){
                         if(kabeh[y].kategori.includes(kategori[i])){
-                            ket += `<div><details class="w3-container "><summary class="w3-button w3-blue w3-border-bottom w3-border-white">${kabeh[y].judul}</summary><div class="w3-container w3-border"><div class="w3-container w3-padding nyecrol" >${kabeh[y].isi}</div><div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci busek" onclick="hapus('${kabeh[i].tanggal}/${kabeh[i].kunci}')" >X</div></div></details></div>`
+                            ket += `<div><details class="w3-container "><summary class="w3-button w3-blue w3-border-bottom w3-border-white">${kabeh[y].judul}</summary><div class="w3-container w3-border"><div class="w3-container w3-padding nyecrol" >${kabeh[y].isi}</div><div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci busek" onclick="hapus('${kabeh[y].tanggal}/${kabeh[y].kunci}')" >X</div><div class="w3-tag w3-green w3-container w3-right w3-button w3-padding ngedit" onclick="ngedit('${kabeh[y].tanggal}/${kabeh[y].kunci}')" >/</div></div></details></div>`
                         }
                     }
                     ket += `</details>`
@@ -258,18 +258,33 @@
 
                 firebase.database().ref("setting").on('value',(snapshot)=>{
                     var busek = document.getElementsByClassName("busek");
+                    var ed = document.getElementsByClassName("ngedit");
                     var apa = window.location.href;
                     if(apa.includes(snapshot.val().hapus)){
-                        for(var b = 0; b<busek.length;b++){
-                            busek[b].style.display = "block"
-                        }
-                    }else{
-                        for(var b = 0; b<busek.length;b++){
-                            busek[b].style.display = "none"
-                        }
+                        $(".busek").show()
+                        $(".ngedit").hide()
+                        
+                    }else if(apa.includes(snapshot.val().edit)){
+                        $(".ngedit").show()
+                        $(".busek").hide()
+                    } else{
+                        $(".busek").hide()
+                        $(".ngedit").hide()
                     }
                 })
             });
+
+            function munculkan(a,b){
+                var nodenya = document.getElementsByClassName(a);
+                for(var n = 0; n<nodenya.length;n++){
+                    if(b){
+                        nodenya[n].style.display = "block"
+                    }else{
+                        nodenya[n].style.display = "block"
+                    }
+                    
+                }
+            }
 
             $("#mc").hide();
             $("#editor").hide()
@@ -291,12 +306,14 @@
                     $("#editor").hide();
                 })
             })
-            
+            // markdown show
             document.getElementById("markdown").onclick = function(){
                 var tex = document.getElementById("edit").innerText.replace(/"/g,"");
                 var target = document.getElementById("muncul").innerHTML = marked(tex);
                 $("#mc").show();
             }
+
+            // html show
             document.getElementById("html").onclick = function(){
                 var tex = document.getElementById("edit").innerHTML.replace(/<br>/g,"\n");
                 var target = document.getElementById("muncul").innerHTML = marked(tex);
@@ -307,8 +324,8 @@
                 $("#mc").hide();
             })
 
+            //simpan
             $("#save1").click(()=>{
-
                 let tod = new Date().toISOString().slice(0, 10)
 
                 var hsl = $("#muncul").html();
@@ -334,14 +351,17 @@
                         if(e){
                             alert("gagal")
                             $("#mc").hide();
+                            $("#editor").hide()
                         }else{
                             alert("berhasil")
                             $("#mc").hide();
+                            $("#editor").hide()
                         }
                     })
                 }
             })
 
+            // hapus
            function hapus(e){
                var apa = window.location.href;
                if(apa.includes("#")){
@@ -360,6 +380,70 @@
                }
            }
 
+           // ngedit
+
+           function ngedit(e){
+                $("#editor").show()
+                $("#update").show()
+               firebase.database().ref("post/"+e).once('value').then((snapshot)=>{
+                    $("#edit").html(snapshot.val().isi)
+                    $("#ket").val(snapshot.val().keterangan)
+                    $("#jdl").val(snapshot.val().judul)
+                    $("#kat").val(snapshot.val().kategori)
+                    $("#ket").val(snapshot.val().keterangan)
+                    $("#tag").val(snapshot.val().tag)
+
+                    $("#save1").hide()
+                    $("#update").click(()=>{
+
+                        const postData = {
+                            isi:$("#muncul").html(),
+                            keterangan:$("#ket").val(),
+                            kategori:$("#kat").val(),
+                            judul:$("#jdl").val(),
+                            tag:$("#tag").val(),
+                            tanggal:snapshot.val().tanggal,
+                            kunci:snapshot.val().kunci
+                        }
+
+                        firebase.database().ref("post/"+e).set(postData,(err)=>{
+                            if(err){
+                                alert("gagal"+err)
+                                $("#mc").hide();
+                                $("#editor").hide()
+                            }else{
+                                alert("berhasil")
+                                $("#mc").hide();
+                                $("#editor").hide()
+                            }
+                        })
+                    })
+               })
+           }
+
+        $("#edit").keypress((e)=>{
+            var key = e.which;
+            if(key == 13)  // the enter key code
+            {
+                firebase.database().ref("tmp/editor").set({
+                editor:e.target.innerHTML
+                },(err)=>{
+                    if(err){
+                        alert("koneksi error")
+                    }else{
+
+                    }
+                })
+            }
+            
+
+            
+        })
+        $("#pulihkan").click(()=>{
+            firebase.database().ref("tmp/editor").once('value').then((snapshot)=>{
+                $("#edit").html(snapshot.val().editor)
+            })
+        })
 
            File.prototype.gamabar = (panggil)=>{
                var reader = new FileReader();
