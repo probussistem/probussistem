@@ -7,6 +7,10 @@ h*{
     padding:0px;
     overflow: scroll;
 }
+[contenteditable]:focus {
+    outline: 0px solid transparent;
+}
+
 
 html {
     overflow: scroll;

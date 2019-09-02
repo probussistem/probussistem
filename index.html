@@ -143,6 +143,7 @@
         <script>
             $('#hasilCari').hide()
             $("#update").hide()
+            
             var firebaseConfig = {
                 apiKey: "AIzaSyCckvX1DUrHlG6Zh6zVExgLOE_Mr4RANhw",
                 authDomain: "probussystem-32ab2.firebaseapp.com",
@@ -244,7 +245,7 @@
                 var sugestTag = `<datalist id="taglist">`
                 for(var i in kategori){
                     sugest += `<option value="${kategori[i]}">`
-                    sugestTag += `<option value="${tagnya[i]}">`
+                    
                     ket += `<details><summary class="w3-button">${kategori[i]}</summary>`
                     for(var y in kabeh){
                         if(kabeh[y].kategori.includes(kategori[i])){
@@ -252,6 +253,10 @@
                         }
                     }
                     ket += `</details>`
+                }
+
+                for(var i in tagnya){
+                    sugestTag += `<option value="${tagnya[i]}">`
                 }
                 sugest += `</datalist>`
                 sugestTag +=`</datalist>`
@@ -320,15 +325,16 @@
             })
             // markdown show
             document.getElementById("markdown").onclick = function(){
-                var tex = document.getElementById("edit").innerText.replace(/"/g,"");
+                var tex = document.getElementById("edit").innerText;
                 var target = document.getElementById("muncul").innerHTML = marked(tex);
                 $("#mc").show();
             }
 
             // html show
             document.getElementById("html").onclick = function(){
-                var tex = document.getElementById("edit").innerHTML.replace(/<br>/g,"\n");
-                var target = document.getElementById("muncul").innerHTML = marked(tex);
+
+                var tex = document.getElementById("edit").innerHTML
+                var target = document.getElementById("muncul").innerHTML = marked(tex.replace(/&lt;/g, "<").replace(/&gt;/g, ">"));
                 $("#mc").show();
             }
 
