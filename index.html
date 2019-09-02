@@ -249,7 +249,7 @@
                     ket += `<details><summary class="w3-button">${kategori[i]}</summary>`
                     for(var y in kabeh){
                         if(kabeh[y].kategori.includes(kategori[i])){
-                            ket += `<div><details class="w3-container "><summary class="w3-button w3-blue w3-border-bottom w3-border-white">${kabeh[y].judul}</summary><div class="w3-container w3-border"><div class="w3-container w3-padding nyecrol" >${kabeh[y].isi}</div><div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci busek" onclick="hapus('${kabeh[y].tanggal}/${kabeh[y].kunci}')" >X</div><div class="w3-tag w3-green w3-container w3-right w3-button w3-padding ngedit" onclick="ngedit('${kabeh[y].tanggal}/${kabeh[y].kunci}')" >/</div></div></details></div>`
+                            ket += `<div><details class="w3-container "><summary class="w3-button w3-blue w3-border-bottom w3-border-white">${kabeh[y].judul} > ${kabeh[y].tanggal}</summary><div class="w3-container w3-border"><div class="w3-container w3-padding nyecrol" >${kabeh[y].isi}</div><div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci busek" onclick="hapus('${kabeh[y].tanggal}/${kabeh[y].kunci}')" >X</div><div class="w3-tag w3-green w3-container w3-right w3-button w3-padding ngedit" onclick="ngedit('${kabeh[y].tanggal}/${kabeh[y].kunci}')" >/</div></div></details></div>`
                         }
                     }
                     ket += `</details>`
