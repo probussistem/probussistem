@@ -463,6 +463,20 @@
             })
         })
 
+        var htng = 0;
+        document.body.onclick = function(e){
+            if(e.target.nodeName == "IMG"){
+                htng += 10;
+                console.log(htng)
+                if(htng<101){
+                    e.target.style.width = htng+"%";
+                }else{
+                    htng = 10;
+                }
+
+            }
+        }
+
            File.prototype.gamabar = (panggil)=>{
                var reader = new FileReader();
                reader.onload = (e)=>{
