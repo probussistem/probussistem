@@ -270,7 +270,7 @@
                 var kontent = ""
                 for(var y in sm){this
                     var isinya = sm[y];
-                        kontent +=`<details ><summary class="w3-container"><div class="w3-container w3-button w3-blue-grey w3-round">${isinya.judul} </div><div class="w3-container w3-padding"><i class="w3-small w3-text-grey"> ${isinya.tanggal}</i><i class="w3-container w3-small w3-text-grey">${isinya.keterangan}</i></div></summary><div class="w3-container w3-padding w3-round w3-border">${isinya.isi}</div> <div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci busek" onclick="hapus('${isinya.tanggal}/${isinya.kunci}')" id="${isinya.kunci}">X</div></details>`;
+                        kontent +=`<details ><summary class="w3-container"><div class="w3-container w3-button w3-indigo w3-round">${isinya.judul} </div><div class="w3-container w3-padding"><i class="w3-small w3-text-grey"> ${isinya.tanggal}</i><i class="w3-container w3-small w3-text-grey">${isinya.keterangan}</i></div></summary><div class="w3-container w3-padding w3-round w3-border">${isinya.isi}</div> <div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci busek" onclick="hapus('${isinya.tanggal}/${isinya.kunci}')" id="${isinya.kunci}">X</div></details>`;
                 }
                 $("#main").html(kontent)
                 $('#loading').hide()
