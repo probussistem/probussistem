@@ -44,8 +44,12 @@ html {
     bottom: 5%;
     width: 90%;
     height: 90%;
-    overflow: scroll;
+    
     z-index: 0;
+}
+
+#edit{
+    overflow: scroll;
 }
 #hasilCari{
     position: fixed;
@@ -54,7 +58,7 @@ html {
     bottom: 5%;
     width: 90%;
     height: 90%;
-    overflow: scroll;
+    
     z-index: 10;
 }
 .padding-kanan{
