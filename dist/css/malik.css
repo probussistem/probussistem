@@ -10,7 +10,9 @@ h*{
 [contenteditable]:focus {
     outline: 0px solid transparent;
 }
-
+summary{
+    outline:none;
+  }
 
 html {
     overflow: scroll;

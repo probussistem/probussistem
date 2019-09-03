@@ -249,12 +249,13 @@
                     ket += `<details><summary class="w3-button">${kategori[i]}</summary>`
                     for(var y in kabeh){
                         if(kabeh[y].kategori.includes(kategori[i])){
-                            ket += `<div><details class="w3-container "><summary class="w3-button w3-blue w3-border-bottom w3-border-white">${kabeh[y].judul} > ${kabeh[y].tanggal}</summary><div class="w3-container w3-border"><div class="w3-container w3-padding nyecrol" ><div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci busek" onclick="hapus('${kabeh[y].tanggal}/${kabeh[y].kunci}')" >X</div><div class="w3-tag w3-green w3-container w3-right w3-button w3-padding ngedit" onclick="ngedit('${kabeh[y].tanggal}/${kabeh[y].kunci}')" >/</div>${kabeh[y].isi}</div></div></details></div>`
+                            ket += `<div><details class="w3-container "><summary class="w3-container"><div class="w3-button w3-container w3-blue w3-border-bottom w3-border-white w3-round">${kabeh[y].judul} <span class="w3-small "> ${kabeh[y].tanggal}</span></div><i class="w3-text-grey w3-container w3-small">${kabeh[y].keterangan}</i></summary><div class="w3-container w3-border"><div class="w3-container w3-padding nyecrol" ><div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci busek" onclick="hapus('${kabeh[y].tanggal}/${kabeh[y].kunci}')" >X</div><div class="w3-tag w3-green w3-container w3-right w3-button w3-padding ngedit" onclick="ngedit('${kabeh[y].tanggal}/${kabeh[y].kunci}')" >/</div>${kabeh[y].isi}</div></div></details></div>`
                         }
                     }
                     ket += `</details>`
                 }
 
+                // change log container
                 for(var i in tagnya){
                     sugestTag += `<option value="${tagnya[i]}">`
                 }
@@ -268,7 +269,7 @@
                 var kontent = ""
                 for(var y in sm){this
                     var isinya = sm[y];
-                        kontent +=`<details ><summary class="w3-button">${isinya.judul} > ${isinya.tanggal}</summary><div class="w3-container w3-padding">${isinya.isi}</div> <div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci busek" onclick="hapus('${isinya.tanggal}/${isinya.kunci}')" id="${isinya.kunci}">X</div></details>`;
+                        kontent +=`<details ><summary class="w3-container"><div class="w3-container w3-button">${isinya.judul} <span class="w3-small w3-text-grey"> ${isinya.tanggal}</span></div><i class="w3-container w3-small w3-text-grey">${isinya.keterangan}</i></summary><div class="w3-container w3-padding w3-round w3-border">${isinya.isi}</div> <div class="w3-tag w3-red w3-container w3-right w3-button w3-padding kunci busek" onclick="hapus('${isinya.tanggal}/${isinya.kunci}')" id="${isinya.kunci}">X</div></details>`;
                 }
                 $("#main").html(kontent)
                 $('#loading').hide()
